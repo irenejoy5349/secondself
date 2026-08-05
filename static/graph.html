@@ -165,11 +165,9 @@ let network;
 
 
 
-fetch("../graph.json")
-
+fetch("http://localhost:8501/graph.json")
 
 .then(response => response.json())
-
 
 .then(data => {
 
