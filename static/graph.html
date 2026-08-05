@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>SecondSelf Knowledge Graph</title>
+
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
+
+<style>
+
+body {
+
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f8;
+
+}
+
+
+.header {
+
+    background:#111827;
+    color:white;
+    padding:30px;
+    text-align:center;
+
+}
+
+
+.header h1 {
+
+    margin:0;
+    font-size:40px;
+
+}
+
+
+.search-box {
+
+    margin-top:20px;
+
+}
+
+
+.search-box input {
+
+    width:350px;
+    padding:12px;
+    font-size:17px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+
+}
+
+
+.search-box button {
+
+    padding:12px 20px;
+    margin-left:10px;
+    font-size:17px;
+    border:none;
+    border-radius:8px;
+    background:#22c55e;
+    color:white;
+    cursor:pointer;
+
+}
+
+
+.search-box button:hover {
+
+    background:#16a34a;
+
+}
+
+
+.clear-btn {
+
+    background:#ef4444 !important;
+
+}
+
+
+#network {
+
+    width:100%;
+    height:82vh;
+    background:white;
+
+}
+
+
+.info {
+
+    margin-top:15px;
+    font-size:15px;
+
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="header">
+
+
+<h1>
+🧠 SecondSelf Knowledge Graph
+</h1>
+
+
+<div class="search-box">
+
+
+<input 
+type="text"
+id="searchBox"
+placeholder="Search memories...">
+
+
+<button onclick="searchNode()">
+🔍 Search
+</button>
+
+
+<button class="clear-btn" onclick="clearSearch()">
+Clear
+</button>
+
+
+</div>
+
+
+<div class="info">
+
+Your Personal AI Second Brain
+
+</div>
+
+
+</div>
+
+
+
+<div id="network"></div>
+
+
+
+<script>
+
+
+let nodes;
+let network;
+
+
+
+fetch("../graph.json")
+
+
+.then(response => response.json())
+
+
+.then(data => {
+
+
+
+nodes = new vis.DataSet(
+
+
+data.nodes.map(node => {
+
+
+
+let color="#60a5fa";
+
+
+if(node.label==="note")
+color="#22c55e";
+
+
+if(node.label==="link")
+color="#f59e0b";
+
+
+if(node.label==="file")
+color="#a855f7";
+
+
+
+let content;
+
+
+if(typeof node.content==="object")
+
+content=node.content.filename;
+
+else
+
+content=node.content;
+
+
+
+return {
+
+
+id:node.id,
+
+
+label:
+node.label==="note"
+?"📝 Note":
+node.label==="link"
+?"🔗 Link":
+"📄 File",
+
+
+
+title:content,
+
+
+original:content,
+
+
+shape:"dot",
+
+
+size:25,
+
+
+color:color
+
+
+
+};
+
+
+})
+
+
+);
+
+
+
+let edges=new vis.DataSet(
+
+
+data.edges.map(edge=>({
+
+
+from:edge.source,
+
+to:edge.target,
+
+arrows:"to",
+
+label:edge.type
+
+
+}))
+
+
+);
+
+
+
+let container=document.getElementById("network");
+
+
+
+let graphData={
+
+nodes:nodes,
+
+edges:edges
+
+};
+
+
+
+let options={
+
+
+physics:{
+
+
+enabled:true,
+
+stabilization:true
+
+
+},
+
+
+interaction:{
+
+
+hover:true,
+
+zoomView:true
+
+
+},
+
+
+nodes:{
+
+
+font:{
+
+
+size:18,
+
+color:"#111"
+
+
+},
+
+
+borderWidth:2
+
+
+},
+
+
+edges:{
+
+
+color:"#999",
+
+font:{size:12}
+
+
+}
+
+
+};
+
+
+
+network=new vis.Network(
+
+container,
+
+graphData,
+
+options
+
+);
+
+
+
+})
+
+
+
+.catch(error=>{
+
+
+console.log(error);
+
+alert("graph.json loading failed");
+
+
+});
+
+
+
+
+
+
+function searchNode(){
+
+
+let text=document
+.getElementById("searchBox")
+.value
+.toLowerCase();
+
+
+
+if(text===""){
+
+clearSearch();
+
+return;
+
+}
+
+
+
+nodes.forEach(node=>{
+
+
+if(node.original.toLowerCase().includes(text)){
+
+
+
+nodes.update({
+
+
+id:node.id,
+
+
+color:"#ef4444",
+
+
+size:45
+
+
+});
+
+
+
+network.focus(node.id,{
+
+
+scale:2,
+
+
+animation:true
+
+
+});
+
+
+
+}
+
+else{
+
+
+nodes.update({
+
+
+id:node.id,
+
+
+opacity:0.2
+
+
+});
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
+
+function clearSearch(){
+
+
+
+document.getElementById("searchBox").value="";
+
+
+
+nodes.forEach(node=>{
+
+
+nodes.update({
+
+
+id:node.id,
+
+
+opacity:1,
+
+
+size:25
+
+
+});
+
+
+});
+
+
+network.fit({
+
+animation:true
+
+});
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

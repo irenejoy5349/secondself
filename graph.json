@@ -1,0 +1,83 @@
+{
+    "nodes": [
+        {
+            "id": "0be83296-7caa-4c15-ad7d-344e518a6b01",
+            "label": "file",
+            "content": {
+                "filename": "python-3.13.14-amd64.exe",
+                "extension": ".exe",
+                "location": "C:\\Users\\chose\\Downloads\\python-3.13.14-amd64.exe"
+            }
+        },
+        {
+            "id": "401e3afd-b167-4253-a274-8e75066b08ea",
+            "label": "link",
+            "content": "https://github.com"
+        },
+        {
+            "id": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
+            "label": "note",
+            "content": "Learning LangChain today"
+        },
+        {
+            "id": "6434311c-8b9d-4356-b0e6-998dec20063e",
+            "label": "note",
+            "content": "Today I started building SecondSelf project."
+        },
+        {
+            "id": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
+            "label": "link",
+            "content": "https://github.com"
+        },
+        {
+            "id": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
+            "label": "file",
+            "content": {
+                "filename": "python-3.13.14-amd64.exe",
+                "extension": ".exe",
+                "location": "C:\\Users\\chose\\Downloads\\python-3.13.14-amd64.exe"
+            }
+        },
+        {
+            "id": "8a08f1ff-68cb-45d8-8d33-50b54d02c5c7",
+            "label": "note",
+            "content": "Iam learning AIML in Masai"
+        }
+    ],
+    "edges": [
+        {
+            "source": "0be83296-7caa-4c15-ad7d-344e518a6b01",
+            "target": "401e3afd-b167-4253-a274-8e75066b08ea",
+            "type": "related"
+        },
+        {
+            "source": "401e3afd-b167-4253-a274-8e75066b08ea",
+            "target": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
+            "type": "related"
+        },
+        {
+            "source": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
+            "target": "6434311c-8b9d-4356-b0e6-998dec20063e",
+            "type": "related"
+        },
+        {
+            "source": "6434311c-8b9d-4356-b0e6-998dec20063e",
+            "target": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
+            "type": "related"
+        },
+        {
+            "source": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
+            "target": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
+            "type": "related"
+        },
+        {
+            "source": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
+            "target": "8a08f1ff-68cb-45d8-8d33-50b54d02c5c7",
+            "type": "related"
+        }
+    ],
+    "metadata": {
+        "node_count": 7,
+        "edge_count": 6
+    }
+}
