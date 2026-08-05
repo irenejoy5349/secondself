@@ -2,82 +2,75 @@
     "nodes": [
         {
             "id": "0be83296-7caa-4c15-ad7d-344e518a6b01",
-            "label": "file",
-            "content": {
-                "filename": "python-3.13.14-amd64.exe",
-                "extension": ".exe",
-                "location": "C:\\Users\\chose\\Downloads\\python-3.13.14-amd64.exe"
-            }
+            "label": "python-3.13.14-amd64.exe .exe C:\\Users\\c"
         },
         {
             "id": "401e3afd-b167-4253-a274-8e75066b08ea",
-            "label": "link",
-            "content": "https://github.com"
+            "label": "https://github.com"
         },
         {
             "id": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
-            "label": "note",
-            "content": "Learning LangChain today"
+            "label": "Learning LangChain today"
         },
         {
             "id": "6434311c-8b9d-4356-b0e6-998dec20063e",
-            "label": "note",
-            "content": "Today I started building SecondSelf project."
+            "label": "Today I started building SecondSelf proj"
         },
         {
             "id": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
-            "label": "link",
-            "content": "https://github.com"
+            "label": "https://github.com"
         },
         {
             "id": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
-            "label": "file",
-            "content": {
-                "filename": "python-3.13.14-amd64.exe",
-                "extension": ".exe",
-                "location": "C:\\Users\\chose\\Downloads\\python-3.13.14-amd64.exe"
-            }
+            "label": "python-3.13.14-amd64.exe .exe C:\\Users\\c"
         },
         {
             "id": "8a08f1ff-68cb-45d8-8d33-50b54d02c5c7",
-            "label": "note",
-            "content": "Iam learning AIML in Masai"
+            "label": "Iam learning AIML in Masai"
+        },
+        {
+            "id": "a31564bc-f6ba-45c3-8a96-7063984ead3a",
+            "label": "Today I learned about Transformers and A"
+        },
+        {
+            "id": "b685cfd7-4068-4bdf-8980-f1cd2fe29c3c",
+            "label": "I learned about AI Agents and Memory Sys"
+        },
+        {
+            "id": "b731c1bc-b333-4a6e-ab65-d2a0115ebb99",
+            "label": "Today I learned about Vector Databases a"
         }
     ],
     "edges": [
         {
-            "source": "0be83296-7caa-4c15-ad7d-344e518a6b01",
-            "target": "401e3afd-b167-4253-a274-8e75066b08ea",
-            "type": "related"
+            "from": "0be83296-7caa-4c15-ad7d-344e518a6b01",
+            "to": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
+            "value": 1.0000003576278687
         },
         {
-            "source": "401e3afd-b167-4253-a274-8e75066b08ea",
-            "target": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
-            "type": "related"
+            "from": "401e3afd-b167-4253-a274-8e75066b08ea",
+            "to": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
+            "value": 1.000000238418579
         },
         {
-            "source": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
-            "target": "6434311c-8b9d-4356-b0e6-998dec20063e",
-            "type": "related"
+            "from": "4c7f87dc-af41-4b1d-817f-5eba2604640c",
+            "to": "a31564bc-f6ba-45c3-8a96-7063984ead3a",
+            "value": 0.3857479691505432
         },
         {
-            "source": "6434311c-8b9d-4356-b0e6-998dec20063e",
-            "target": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
-            "type": "related"
+            "from": "8a08f1ff-68cb-45d8-8d33-50b54d02c5c7",
+            "to": "b685cfd7-4068-4bdf-8980-f1cd2fe29c3c",
+            "value": 0.35657668113708496
         },
         {
-            "source": "7cfe6f9e-0f5a-4950-a4b7-7b920e14a33f",
-            "target": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
-            "type": "related"
+            "from": "a31564bc-f6ba-45c3-8a96-7063984ead3a",
+            "to": "b685cfd7-4068-4bdf-8980-f1cd2fe29c3c",
+            "value": 0.47175702452659607
         },
         {
-            "source": "88be79ef-08eb-4230-b505-e8bbf15cfb7c",
-            "target": "8a08f1ff-68cb-45d8-8d33-50b54d02c5c7",
-            "type": "related"
+            "from": "b685cfd7-4068-4bdf-8980-f1cd2fe29c3c",
+            "to": "b731c1bc-b333-4a6e-ab65-d2a0115ebb99",
+            "value": 0.3801232874393463
         }
-    ],
-    "metadata": {
-        "node_count": 7,
-        "edge_count": 6
-    }
+    ]
 }
