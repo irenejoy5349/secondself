@@ -10,7 +10,7 @@ venv/
 .env.local
 
 # Regenerable caches
-#embeddings/
+embeddings/
 
 # IDE / OS
 .idea/
