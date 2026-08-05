@@ -118,7 +118,7 @@ You can ask SecondSelf:
 
 ### Application Preview
 
-![alt text](image.png)
+![SecondSelf AI Brain](screenshots/app.png)
 The application provides:
 
 * 🧠 Ask Your Brain interface
