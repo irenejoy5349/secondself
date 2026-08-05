@@ -17,12 +17,16 @@ https://secondself-oracle.streamlit.app/
 ## ✨ Features
 
 * 📝 Capture notes, links, and files
+* ➕ Add new memories directly from the application
 * 🧠 Semantic Search using Sentence Transformers
 * 🔍 Ask Your Brain using Retrieval-Augmented Generation (RAG)
 * 🤖 AI-powered answers using Groq API
 * 🌐 Interactive Knowledge Graph visualization
 * 🔗 Automatic relationship discovery using embeddings
+* 🔄 Automatic memory processing and embedding generation
+* 🕸 Dynamic Knowledge Graph updates
 * 📚 Source-based memory retrieval
+* 🧠 Continuous AI memory learning workflow
 * ⚡ Streamlit-based user interface
 
 ---
@@ -56,93 +60,8 @@ second-self/
 ├── ask.py
 ├── capture.py
 ├── embed.py
+├── build_graph.py
 ├── search_memory.py
 ├── graph.json
 ├── requirements.txt
 └── README.md
-```
-
----
-
-## 🚀 Running Locally
-
-Clone the repository:
-
-```bash
-git clone https://github.com/irenejoy5349/secondself.git
-cd secondself
-```
-
-Create a virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-Activate it:
-
-Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-Run the application:
-
-```bash
-python -m streamlit run app.py
-```
-
----
-
-## 🧠 Example Questions
-
-You can ask SecondSelf:
-
-* What course am I doing?
-* What am I learning?
-* What projects did I start?
-* Summarize my memories.
-* What do you know about me?
-* What did I learn about LangChain?
-
----
-
-## 📸 Demo
-
-### Application Preview
-
-![SecondSelf AI Brain](screenshots/app.png)
-The application provides:
-
-* 🧠 Ask Your Brain interface
-* 🔍 Semantic Memory Search
-* 🕸 Interactive Knowledge Graph
-* 📚 AI-generated answers with source memories
-
----
-
-## 🔮 Future Improvements
-
-* Automatic memory updates
-* Better RAG pipeline
-* Multi-document support
-* PDF understanding
-* Memory editing
-* Advanced memory personalization
-* Better conversation history
-* User authentication
-
----
-
-## 👨‍💻 Author
-
-**Devi**
-
-Built as part of the IIT Patna × Masai AI/ML Program.
