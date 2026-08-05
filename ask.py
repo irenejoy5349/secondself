@@ -3,10 +3,10 @@ import os
 from pathlib import Path
 
 import numpy as np
+from dotenv import load_dotenv
 from groq import Groq
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -37,11 +37,18 @@ def ask(question):
             with open(memory_file, "r", encoding="utf-8") as f:
                 memory = json.load(f)
 
+            content = memory.get("content", "")
+
+            if isinstance(content, dict):
+                content = " ".join(str(v) for v in content.values())
+            else:
+                content = str(content)
+
             memories.append(
                 {
                     "score": float(score),
-                    "content": str(memory["content"]),
-                    "source": file.stem
+                    "content": content,
+                    "source": file.stem,
                 }
             )
 
@@ -61,6 +68,8 @@ Answer ONLY using the user's memories.
 If the answer is not present,
 say you don't know.
 
+Give a short, natural answer.
+
 Memories:
 
 {context}
@@ -71,28 +80,36 @@ Question:
 """
 
     response = client.chat.completions.create(
-
         model="llama-3.3-70b-versatile",
-
         messages=[
             {
                 "role": "user",
-                "content": prompt
+                "content": prompt,
             }
         ],
-
-        temperature=0.3
-
+        temperature=0.3,
     )
 
+    # -------- Better Sources --------
+
+    source_preview = []
+
+    seen = set()
+
+    for memory in top_memories:
+
+        text = memory["content"].strip()
+
+        if len(text) > 90:
+            text = text[:90] + "..."
+
+        if text not in seen:
+            seen.add(text)
+            source_preview.append(text)
+
     return {
-
-        "answer":
-            response.choices[0].message.content,
-
-        "sources":
-            [m["source"] for m in top_memories]
-
+        "answer": response.choices[0].message.content,
+        "sources": source_preview,
     }
 
 
@@ -103,10 +120,9 @@ if __name__ == "__main__":
     result = ask(q)
 
     print("\n🧠 SecondSelf Answer:\n")
-
     print(result["answer"])
 
-    print("\nSources:")
+    print("\n📚 Sources:\n")
 
     for s in result["sources"]:
         print("-", s)
