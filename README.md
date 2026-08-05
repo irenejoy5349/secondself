@@ -2,7 +2,15 @@
 
 SecondSelf is an AI-powered personal knowledge management system that helps you capture, organize, visualize, and search your personal knowledge.
 
-Instead of storing notes that are never used again, SecondSelf turns your notes into a searchable knowledge graph and allows you to ask questions in natural language.
+Instead of storing notes that are never used again, SecondSelf turns your memories into a searchable AI knowledge system and allows you to ask questions in natural language.
+
+---
+
+## 🚀 Live Demo
+
+Try SecondSelf AI Brain:
+
+https://secondself-oracle.streamlit.app/
 
 ---
 
@@ -11,8 +19,10 @@ Instead of storing notes that are never used again, SecondSelf turns your notes 
 * 📝 Capture notes, links, and files
 * 🧠 Semantic Search using Sentence Transformers
 * 🔍 Ask Your Brain using Retrieval-Augmented Generation (RAG)
-* 🌐 Interactive Knowledge Graph
+* 🤖 AI-powered answers using Groq API
+* 🌐 Interactive Knowledge Graph visualization
 * 🔗 Automatic relationship discovery using embeddings
+* 📚 Source-based memory retrieval
 * ⚡ Streamlit-based user interface
 
 ---
@@ -23,6 +33,7 @@ Instead of storing notes that are never used again, SecondSelf turns your notes 
 * Streamlit
 * Sentence Transformers
 * Groq API
+* Retrieval-Augmented Generation (RAG)
 * NumPy
 * scikit-learn
 * Vis Network
@@ -32,7 +43,7 @@ Instead of storing notes that are never used again, SecondSelf turns your notes 
 
 ## 📂 Project Structure
 
-```
+```text
 second-self/
 │
 ├── raw/
@@ -92,22 +103,28 @@ python -m streamlit run app.py
 
 ## 🧠 Example Questions
 
+You can ask SecondSelf:
+
 * What course am I doing?
 * What am I learning?
-* What projects am I have?
+* What projects did I start?
 * Summarize my memories.
 * What do you know about me?
+* What did I learn about LangChain?
 
 ---
 
 ## 📸 Demo
 
+### Application Preview
+
+![alt text](image.png)
 The application provides:
 
-* Interactive Knowledge Graph
-* Ask Your Brain interface
-* Semantic Memory Search
-* AI-generated answers with source memories
+* 🧠 Ask Your Brain interface
+* 🔍 Semantic Memory Search
+* 🕸 Interactive Knowledge Graph
+* 📚 AI-generated answers with source memories
 
 ---
 
@@ -118,7 +135,8 @@ The application provides:
 * Multi-document support
 * PDF understanding
 * Memory editing
-* Public deployment
+* Advanced memory personalization
+* Better conversation history
 * User authentication
 
 ---
