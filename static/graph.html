@@ -170,6 +170,11 @@ fetch("http://localhost:8501/graph.json")
 .then(response => response.json())
 
 .then(data => {
+    
+    window.graphData = data;
+    
+    console.log("GRAPH DATA:", data);
+    console.log("FIRST NODE:", data.nodes[0]);
 
 
 
@@ -183,45 +188,55 @@ data.nodes.map(node => {
 let color="#60a5fa";
 
 
-if(node.label==="note")
-color="#22c55e";
+if(node.type==="note")
+    color="#22c55e";
 
 
-if(node.label==="link")
-color="#f59e0b";
+else if(node.type==="link")
+    color="#f59e0b";
 
 
-if(node.label==="file")
-color="#a855f7";
+else if(node.type==="file")
+    color="#a855f7";
 
 
 
 let content;
 
 
-if(typeof node.content==="object")
+if(node.content){
 
-content=node.content.filename;
+    if(typeof node.content==="object")
+        content=node.content.filename;
+    else
+        content=node.content;
 
-else
+}
+else{
 
-content=node.content;
+    content=node.label;
 
+}
+
+
+console.log("NODE:", content);
 
 
 return {
 
-
 id:node.id,
 
+type:node.type,
 
 label:
-node.label==="note"
-?"📝 Note":
-node.label==="link"
-?"🔗 Link":
-"📄 File",
 
+node.type==="note"
+?"📝 Note":
+
+node.type==="link"
+?"🔗 Link":
+
+"📄 File",
 
 
 title:content,
@@ -237,8 +252,6 @@ size:25,
 
 
 color:color
-
-
 
 };
 
@@ -399,9 +412,8 @@ return;
 
 nodes.forEach(node=>{
 
-
-if(node.original.toLowerCase().includes(text)){
-
+console.log("SEARCHING:", node.original);
+if(node.original && node.original.toLowerCase().includes(text)){
 
 
 nodes.update({
@@ -420,15 +432,14 @@ size:45
 
 
 
-network.focus(node.id,{
+network.selectNodes([node.id]);
 
-
-scale:2,
-
-
-animation:true
-
-
+network.fit({
+    nodes: [node.id],
+    animation: {
+        duration: 800,
+        easingFunction: "easeInOutQuad"
+    }
 });
 
 
@@ -437,18 +448,22 @@ animation:true
 
 else{
 
+    let color="#60a5fa";
 
-nodes.update({
+    if(node.label==="📝 Note")
+        color="#22c55e";
 
+    if(node.label==="🔗 Link")
+        color="#f59e0b";
 
-id:node.id,
+    if(node.label==="📄 File")
+        color="#a855f7";
 
-
-opacity:0.2
-
-
-});
-
+    nodes.update({
+        id:node.id,
+        color:color,
+        size:25
+    });
 
 }
 
@@ -473,18 +488,21 @@ document.getElementById("searchBox").value="";
 nodes.forEach(node=>{
 
 
+let color="#60a5fa";
+
+if(node.label==="📝 Note")
+    color="#22c55e";
+
+if(node.label==="🔗 Link")
+    color="#f59e0b";
+
+if(node.label==="📄 File")
+    color="#a855f7";
+
 nodes.update({
-
-
-id:node.id,
-
-
-opacity:1,
-
-
-size:25
-
-
+    id:node.id,
+    color:color,
+    size:25
 });
 
 
